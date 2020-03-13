@@ -15,21 +15,54 @@ namespace CalculatorConsoleApp
             // int a = 10;
             // int b = 6;
 
-            Console.Write("Input Nilai A = ");
-            int a = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Pilih Menu Kalkulator : ");
+            Console.WriteLine();
+            Console.WriteLine("1. Penambahan");
+            Console.WriteLine("2. Pengurangan");
+            Console.WriteLine("3. Perkalian");
+            Console.WriteLine("4. Pembagian");
+            Console.WriteLine();
+            Console.Write("Input Menu [1..4] : ");
+            int menu = int.Parse(Console.ReadLine());
 
-            Console.Write("Input Nilai B = ");
-            int b = Convert.ToInt32(Console.ReadLine());
+            if(menu > 0 && menu < 5) {
+                Console.WriteLine();
+                Console.Write("Input Nilai A = ");
+                int a = int.Parse(Console.ReadLine());
+
+                Console.Write("Input Nilai B = ");
+                int b = Convert.ToInt32(Console.ReadLine());
+
+                switch(menu) {
+                    case 1:
+                      Console.WriteLine();
+                      Console.WriteLine("Hasil Penambahan " + a + " + " + b + " = " + Penambahan(a, b));
+                      break;
+                    case 2:
+                      Console.WriteLine();
+                      Console.WriteLine("Hasil Pengurangan {0} - {1} = {2}", a, b, Pengurangan(a, b));
+                      break;
+                    case 3:
+                      Console.WriteLine();
+                      Console.WriteLine("Hasil Perkalian {0} * {1} = {2}", a, b, Perkalian(a, b));
+                      break;
+                    case 4:
+                      Console.WriteLine();
+                      Console.WriteLine("Hasil Pembagian {0} / {1} = {2}", a, b, Pembagian(a, b));
+                      break;
+                }
+            }else {
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Maaf, menu yang Anda pilih tidak tersedia.");
+            }
 
             Console.WriteLine();
 
-            Console.WriteLine("Hasil Penambahan " + a + " + " + b + " = " + Penambahan(a, b));
-            Console.WriteLine("Hasil Pengurangan {0} - {1} = {2}", a, b, Pengurangan(a, b));
-            Console.WriteLine("Hasil Perkalian {0} * {1} = {2}", a, b, Perkalian(a, b));
-            Console.WriteLine("Hasil Pembagian {0} / {1} = {2}", a, b, Pembagian(a, b));
-
             Console.WriteLine("\nTekan key apapun untuk keluar");
             Console.ReadKey();
+            Console.Clear();
         }
 
         static int Penambahan(int a, int b)
